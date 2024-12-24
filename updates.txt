@@ -1,0 +1,11 @@
+Make sure your uploads directory has proper permissions and that you're handling the files securely. You might also want to:
+
+Add file size limits
+
+Implement more thorough file type validation
+
+Add virus scanning for uploaded files
+
+Implement proper file cleanup procedures
+
+Consider using cloud storage instead of local storage for production
