@@ -20,3 +20,6 @@ def validate_balance(account_type, balance):
         return False, "Minimum initial deposit of ₹1000 is required for savings account"
     
     return True, ""
+
+def validate_phone(phone):
+    return len(str(phone)) == 10 and str(phone).isdigit()

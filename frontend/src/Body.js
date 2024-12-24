@@ -44,8 +44,10 @@ const Body = ({
                             id="phone"
                             name="phone"
                             onChange={handleChange}
+                            className={errors.phone ? 'error' : ''}
                             required
                         />
+                        {errors.phone && <span className="error-message">{errors.phone}</span>}
                     </div>
                     <div className="form-group">
                         <label htmlFor="dob">DOB</label>

@@ -47,6 +47,10 @@ function SignupForm() {
     return emailRegex.test(email);
   };
 
+  const validatephone = (phone) => {
+    return /^\d{10}$/.test(phone);
+  };
+
   const validateAadhar = (aadhar) => {
     return /^\d{12}$/.test(aadhar);
   };
@@ -101,6 +105,11 @@ function SignupForm() {
           error = 'Please enter a valid amount';
       }
     }
+    else if (name === 'phone' && value) {
+      if (!validatephone(value)) {
+          error = 'Phone number must be exactly 10 digits';
+      }
+    }
     else if (name === 'accounttype') {
         // Reset balance and error when switching account types
         setFormData(prevState => ({
@@ -136,7 +145,8 @@ function SignupForm() {
     email: '',
     aadharcard: '',
     pancard: '',
-    dob: ''
+    dob: '',
+    phone: ''
   });
 
 
@@ -178,7 +188,8 @@ function SignupForm() {
     const validationErrors = {
       email: !validateEmail(formData.email) ? 'Invalid email address' : '',
       aadharcard: !validateAadhar(formData.aadharcard) ? 'Invalid Aadhar number' : '',
-      pancard: !validatePAN(formData.pancard) ? 'Invalid PAN format' : ''
+      pancard: !validatePAN(formData.pancard) ? 'Invalid PAN format' : '',
+      phone: !validatephone(formData.phone) ? 'Invalid phone number' : ''
     };
 
     setErrors(validationErrors);
@@ -193,8 +204,7 @@ function SignupForm() {
     // Convert aadhar to string and ensure PAN is uppercase
     const dataToSend = {
         ...formData,
-        aadharcard: formData.aadharcard.toString(),
-        pancard: formData.pancard.toUpperCase()
+        aadharcard: formData.aadharcard.toString()
     };
     // Append all form data fields
     Object.keys(dataToSend).forEach(key => {
@@ -217,7 +227,7 @@ function SignupForm() {
 
 
     try {
-      const response = await fetch('https://bank-ey30.onrender.com/open_account', {
+      const response = await fetch('http://127.0.0.1:5000/open_account', {
         method: 'POST',
         body: formDataToSend
       });

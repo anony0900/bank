@@ -48,7 +48,7 @@ const SuccessPage = ({ accountDetails, onClose }) => {
                     <p className="thank-you-message">
                         Thank you for choosing our banking services!
                     </p>
-                    <button className="close-button" onClick={onClose}>
+                    <button type="submit" className="close-button" onClick={onClose}>
                         Close
                     </button>
                 </div>
