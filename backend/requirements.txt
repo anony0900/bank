@@ -5,3 +5,4 @@ validators==0.22.0
 mysql-connector-python==8.1.0 
 datetime==5.2.0
 python-dotenv==1.0.0 
+pymongo
