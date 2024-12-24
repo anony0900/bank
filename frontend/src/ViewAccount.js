@@ -49,7 +49,7 @@ function ViewAccount() {
       return;
     }
     try {
-      const response = await fetch("https://bank-fy2s.onrender.com/get_name", {
+      const response = await fetch("https://bank-ey30.onrender.com/get_name", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -74,7 +74,7 @@ function ViewAccount() {
 
     if (validateForm()) {
       try {
-        const response = await fetch("https://bank-fy2s.onrender.com/get_details", {
+        const response = await fetch("https://bank-ey30.onrender.com/get_details", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
